@@ -18,5 +18,55 @@ build:
           - us.gcr.io/ticketing-dev-321202/auth
       sync:
         manual:
-          - src: '***/*.ts'
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-321202/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+          - us.gcr.io/ticketing-dev-321202/client
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-321202/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+          - us.gcr.io/ticketing-dev-321202/tickets
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-321202/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+          - us.gcr.io/ticketing-dev-321202/orders
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-321202/expiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+          - us.gcr.io/ticketing-dev-321202/expiration
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-321202/payments
+      context: payments
+      docker:
+        dockerfile: Dockerfile
+        cacheFrom:
+          - us.gcr.io/ticketing-dev-321202/payments
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
             dest: .
