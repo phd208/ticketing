@@ -1,10 +1,10 @@
- name: deploy-payments
+name: deploy-payments
 
 on:
   push:
     branches:
       - master
-    paths: 
+    paths:
       - 'payments/**'
 
 jobs:
