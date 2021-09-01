@@ -6,67 +6,53 @@ deploy:
       - ./infra/k8s/*
       - ./infra/k8s-dev/*
 build:
-  # local:
-  #   push: false
-  googleCloudBuild:
-    projectId: ticketing-dev-321202
+  local:
+    push: false
   artifacts:
-    - image: us.gcr.io/ticketing-dev-321202/auth
+    - image: phd208/auth
       context: auth
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/auth
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-321202/client
+    - image: phd208/client
       context: client
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/client
       sync:
         manual:
           - src: '**/*.js'
             dest: .
-    - image: us.gcr.io/ticketing-dev-321202/tickets
+    - image: phd208/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/tickets
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-321202/orders
+    - image: phd208/orders
       context: orders
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/orders
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-321202/expiration
+    - image: phd208/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/expiration
       sync:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: us.gcr.io/ticketing-dev-321202/payments
+    - image: phd208/payments
       context: payments
       docker:
         dockerfile: Dockerfile
-        cacheFrom:
-          - us.gcr.io/ticketing-dev-321202/payments
       sync:
         manual:
           - src: 'src/**/*.ts'
