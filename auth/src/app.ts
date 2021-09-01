@@ -15,13 +15,18 @@ app.use(json());
 app.use(
   cookieSession({
     signed: false,
-    secure: process.env.NODE_ENV !== 'test'
+    // secure: process.env.NODE_ENV !== 'test'
+    secure: false,
   })
 );
 
 // app.get('/api/users/currentuser', (req, res) => {
 //   res.send('Hi again');
 // });
+
+app.get('/', (req, res) => {
+  res.send('yaay in the root dir')
+})
 
 app.use(currentUserRouter);
 app.use(signinRouter);
