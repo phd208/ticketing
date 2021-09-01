@@ -57,3 +57,4 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+# change
