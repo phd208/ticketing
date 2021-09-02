@@ -15,6 +15,9 @@ const build_client = ({ req }) => {
       baseUrl: '/',
     });
   }
+  
 };
+
+console.log('building client');
 
 export default build_client;
