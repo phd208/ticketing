@@ -3,7 +3,7 @@ import { app } from './app';
 
 const start = async () => {
 
-  console.log('Starting auth...');
+  console.log('Starting auth once more...');
 
   if (!process.env.JWT_KEY) {
     throw new Error('JWT_KEY must be defined');
@@ -22,7 +22,7 @@ const start = async () => {
     console.log('Connected to MongoDb!!!');
   } catch (err) {
     console.error('Cant connect');
-  } 
+  }
 
   app.listen(3000, () => {
     console.log('Listening on port 3000');
