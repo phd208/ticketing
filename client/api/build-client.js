@@ -5,7 +5,7 @@ const build_client = ({ req }) => {
     // we are on the server
 
     return axios.create({
-      baseURL: 'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+      baseURL: 'http://www.deep-blue-ocean-ticketing-app.xyz',
       headers: req.headers,
     });
 
